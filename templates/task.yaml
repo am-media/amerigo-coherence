@@ -1,0 +1,13 @@
+# Copy for substantive tasks. Delete fields that are irrelevant; do not add fields speculatively.
+goal: "Observable user outcome"
+recipe: prototype # use-existing-tool | prototype | add-feature | fix-bug | architectural-change
+acceptance:
+  - criterion: "What must demonstrably work"
+    verification: "How it will be tested"
+scope:
+  allowed: ["paths or modules"]
+  excluded: ["unrelated refactors and features"]
+constraints:
+  new_dependencies: approval_required
+  architectural_change: approval_required
+stop: "All acceptance criteria verified and no blocking regression or risk"
