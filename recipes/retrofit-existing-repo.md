@@ -29,7 +29,7 @@ Default for unproven speculative infrastructure: **DEFER**. Burden of proof is o
 
 Explicitly identify speculative services, theme systems, unused abstractions, alternate pipelines and unused UI. Do not keep them wired merely because they exist.
 
-## 2a. Make the remaining critical path testable
+## 3. Isolate the nonessential surface
 For each CORE/REQUIRED boundary, inspect its input/output contract and existing test evidence. Mark missing boundary checks UNVERIFIED. Before adding features, backfill the smallest deterministic fixture or generator and an output assertion; test nominal and relevant fault conditions without needing production hardware. Do not simulate DEFER/REMOVE branches. Synthetic tests do not replace final integration and real-device checks. See `../docs/boundary-verification.md`.
 
 ## 3. Isolate the nonessential surface
@@ -42,19 +42,22 @@ For DEFER/REMOVE items, prefer in this order:
 
 A separate approved task contract authorizes the isolation batch. Do not touch unrelated active functionality or silently redefine the mission. Prefer cohesive cuts over arbitrary one-file changes; one reversible commit per logical cut.
 
-## 4. Solid boundaries, zero architecture theater
+## 4. Make the remaining critical path testable
+For each retained CORE/REQUIRED boundary, inspect its input/output contract and test evidence. Mark missing checks UNVERIFIED. Before adding features, backfill the smallest deterministic fixture and assertion, covering nominal and material fault conditions. Do not simulate DEFER/REMOVE branches. Synthetic passes never substitute for applicable real integration/device checks. See `../docs/boundary-verification.md`.
+
+## 5. Solid boundaries, zero architecture theater
 
 Separate meaningful responsibilities using ordinary modules/functions where that improves replaceability or testability. An adapter can be one file with a small explicit interface: **no factory, plugin registry, generic bus, framework or provider unless current verified requirements demand it**.
 
 Reuse an abstraction when multiple real consumers need stable shared behavior; do not build for imagined future consumers. Preserve essential input validation, errors, test seams and operational safety. Minimalism is not permission to ship insecure or unreliable behavior.
 
-## 5. Deliver the mission
+## 6. Deliver the mission
 
 First make the critical path run. Then perform the smallest security, reliability, deployability and test work appropriate to the selected mission. Use tests that exercise the actual user journey; do not accept mock-only proof for the core. Stress the core only on risks relevant to the goal.
 
 Do not add features or aesthetic polish outside the mission. After two attempts without progress against the same acceptance criterion, propose PIVOT rather than elaborating the structure.
 
-## 6. Exit deliberately
+## 7. Exit deliberately
 
 - **ADOPT:** critical path demonstrated, applicable gates passed; stop.
 - **FIX:** a specific failing acceptance condition remains; bounded repair.
