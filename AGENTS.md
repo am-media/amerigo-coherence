@@ -1,3 +1,7 @@
+# Constitutional authority
+
+Read and follow `CONSTITUTION.md` before making technical decisions. It is technology-agnostic and takes precedence over recipes; select the smallest sufficient solution, and demand evidence for extra complexity. Do not multiply rules for examples of the same principle.
+
 # Engineering governance
 
 Start with the smallest observable user outcome. Prefer existing tools over custom software. Use `convergence` to select an appropriate recipe and determine acceptance evidence. Stop when the outcome is verified.
