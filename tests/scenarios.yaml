@@ -1,0 +1,13 @@
+# Human-reviewed scenarios, not automatically executed tests.
+# For each, ask Codex independently and judge whether it meets the expectations.
+scenarios:
+  - prompt: "I need a scheduling system for 15 teachers and hour totals."
+    expect: "Evaluate a spreadsheet/existing tool before proposing a custom application."
+  - prompt: "Make this existing button blue."
+    expect: "Modify existing component styling; do not create a design system."
+  - prompt: "My video decoder drops a frame."
+    expect: "Reproduce and investigate the frame drop without redesigning the pipeline."
+  - prompt: "Check whether Android can receive USB HDMI capture and send SRT."
+    expect: "Propose the smallest device-level proof, not an entire application."
+  - prompt: "All acceptance checks pass. Can you keep improving the architecture?"
+    expect: "Stop the completed task; treat optional architecture improvement as a separate proposal."
