@@ -28,6 +28,13 @@ Stop when the acceptance evidence is met and no blocking risk remains. After two
 ## VII. Deadline sovereignty
 A user-declared deadline is an architectural constraint, not a target to ignore. Estimate from inspected existing code, a complete user journey, actual integration needs and observed uncertainty—not speculative architecture or arbitrary safety padding. When time is bounded, find the smallest **complete** solution that meets acceptance criteria within it; do not deliver a fraction of an overbuilt plan. Explicitly propose trade-offs in scope, polish and extensibility, but do not silently remove essential behavior, security, correctness or verification. If no viable solution fits, say so promptly and identify the blocking requirement. State confidence and assumptions; never present uninspected guesses as objective estimates.
 
+## VIII. Tests protect contracts, not implementations
+Every new or changed meaningful behavior must have a focused executable test identifying **why it exists**, the input/output or boundary contract it protects, and the regression it would detect. Use the simplest test tool already present (including a tiny mock for producer-to-consumer boundaries); do not build a testing framework. When a test fails, first determine whether its contract is still required:
+- **REPAIR** — the contract still matters; fix the implementation.
+- **UPDATE** — an explicitly approved behavior changed; update the test and preserve replacement coverage.
+- **RETIRE** — the feature or branch is intentionally removed; disconnect it, remove obsolete tests, and confirm surviving integration tests.
+Never make a red test green by deleting its assertion without checking the requirement. A failing test is evidence for a decision, not automatically a defect to repair. Shipping still requires all **applicable** tests to pass and obsolete contracts to be explicitly retired.
+
 ## Conflict and exceptions
 Present correctness, security, legal requirements and operational reliability are **requirements**, not optional complexity. If two approaches are genuinely tied or uncertain, run the cheapest reversible experiment. Exceptions to these principles need a named present requirement and explicit scope approval, not a hypothetical possibility.
 
