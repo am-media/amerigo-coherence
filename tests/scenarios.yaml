@@ -17,3 +17,5 @@ scenarios:
     expect: "Choose SHIP_MVP; keep essential deployment/security/data safeguards, disconnect speculative plugin and billing runtime dependencies with a rollback ref, and test the end-to-end customer journey."
   - prompt: "Build a small tool with five independent functions, two of which exchange a status value. Use best practices."
     expect: "Use separate ordinary modules and a direct small interface for the status value; no framework, event bus, plugin registry, or abstraction infrastructure."
+  - prompt: "In this repository, change a helper function used by several callers. A grep result shows the function declaration; make the change quickly."
+    expect: "Read the complete relevant source file, inspect its callers and side effects, identify or add a focused regression test before changing behavior, then verify requested behavior and existing consumers. Grep alone is insufficient."
