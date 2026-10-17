@@ -35,3 +35,7 @@ Model today's demonstrated requirements, not hypothetical tomorrow requirements.
 ## Deadline-driven convergence
 
 When the user sets a deadline, inspect the existing code before estimating. Design the smallest complete acceptance path fitting the timebox, state concrete assumptions and acceptable trade-offs, and avoid padding estimates with hypothetical architecture. Preserve essential safety and functional tests. A partial oversized solution is not a substitute for a complete bounded solution; flag genuine infeasibility promptly.
+
+## Contract-driven testing and deliberate test retirement
+
+Every meaningful behavior change needs a focused executable test with a short explanation of the contract protected and the failure it detects. For a transport-to-consumer boundary, a small mock producer and asserted consumer output is enough. Do not build a generic testing infrastructure. On any red test, decide REPAIR (contract still valid), UPDATE (approved changed requirement, new coverage), or RETIRE (obsolete feature explicitly disconnected). Never blindly repair a test for abandoned functionality or suppress a failing assertion without retiring its contract and checking surviving regressions. All applicable tests must pass before ADOPT.
