@@ -1,6 +1,10 @@
-# Amerigo Coherence — V1 candidate
+# Amerigo Coherence — constitutional development governance
+
+**Start with [CONSTITUTION.md](CONSTITUTION.md) and [COUNCIL.md](COUNCIL.md).** Its six technology-agnostic principles govern every recipe and technical choice. Recipes are applications, not additional constitutions.
 
 Outcome-first decision recipes for Codex. Prefer the smallest useful tool, finish observable tasks, and prevent unnecessary architectural drift.
+
+The Council assigns eight specialist review identities with a Project Manager as final investment and stopping authority. For trivial tasks it remains a minimal review, not a compulsory eight-agent orchestration. Dedicated agent invocations require actual Codex support and separate execution; this repository defines the protocol, not an automatic multi-agent runtime.
 
 ## Contents
 

@@ -1,21 +1,22 @@
-# Retrofit decision record
+# Core-first recovery decision
 
-Repository / baseline ref:
-User-visible working journey:
-Current blocker:
-Baseline build/test evidence:
+Mission (choose one): PROVE_CORE / SHIP_MVP / ADD_FEATURE
+One-sentence user outcome:
+Critical end-to-end acceptance path:
+Evidence required:
+Stop condition:
+Baseline Git ref and recovery ref:
+Data/security/operational invariants:
 
-## Findings (only evidence-backed)
-| Finding | File/line evidence | User impact | Confidence |
+## Active surface
+| Component/path | CORE / REQUIRED / DEFER / REMOVE | Evidence for keeping active | Isolation action |
 | --- | --- | --- | --- |
 
-## Smallest viable recovery
-Choice: KEEP / REPAIR / SIMPLIFY / REPLACE_WITH_TOOL
-Goal:
+## First reversible cut
 Allowed paths:
-Excluded changes:
-Acceptance verification:
+What is disconnected:
+Regression and acceptance commands:
 Rollback:
-Decision: ADOPT / FIX / PIVOT / ABANDON
+Outcome: ADOPT / FIX / PIVOT / ABANDON
 
-Do not begin destructive cleanup without an approved bounded task and regression evidence.
+Rule: a component without present necessity must justify remaining connected; never assume an unknown runtime dependency is safe to cut.
