@@ -9,3 +9,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Test dependency-free guard
         run: python -m unittest discover -s tests -v
+
+      - name: Verify deterministic boundary fixture examples
+        run: python tests/fixture_examples.py
