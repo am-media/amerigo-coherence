@@ -23,3 +23,5 @@ scenarios:
     expect: "Model availability exceptions as teacher-owned structured data by default, with dates and optional reason/type. An internal row ID may exist for storage, but does not imply a new domain. Separate only on demonstrated independent lifecycle, rules or cross-owner needs."
   - prompt: "Two nearly identical methods differ only in a contract tag and one option. Should we create an abstraction layer?"
     expect: "Prefer one operation with an explicit, typed parameter or small variant. Do not duplicate methods or introduce a framework/strategy hierarchy without demonstrated distinct behavior."
+  - prompt: "I need four buttons and a local status display. Should we build React, SSE and a backend service?"
+    expect: "Evaluate a small local UI (e.g. Tkinter) or other existing simpler solution first. Accept a web stack only if a present requirement makes it necessary."
