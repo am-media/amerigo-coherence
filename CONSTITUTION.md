@@ -24,6 +24,10 @@ Read the entire relevant human-authored source file, trace consumers and side ef
 ## VI. Convergence is mandatory
 Stop when the acceptance evidence is met and no blocking risk remains. After two unsuccessful attempts at the same criterion, reassess the approach rather than adding layers. Future enhancements are separate tasks.
 
+
+## VII. Deadline sovereignty
+A user-declared deadline is an architectural constraint, not a target to ignore. Estimate from inspected existing code, a complete user journey, actual integration needs and observed uncertainty—not speculative architecture or arbitrary safety padding. When time is bounded, find the smallest **complete** solution that meets acceptance criteria within it; do not deliver a fraction of an overbuilt plan. Explicitly propose trade-offs in scope, polish and extensibility, but do not silently remove essential behavior, security, correctness or verification. If no viable solution fits, say so promptly and identify the blocking requirement. State confidence and assumptions; never present uninspected guesses as objective estimates.
+
 ## Conflict and exceptions
 Present correctness, security, legal requirements and operational reliability are **requirements**, not optional complexity. If two approaches are genuinely tied or uncertain, run the cheapest reversible experiment. Exceptions to these principles need a named present requirement and explicit scope approval, not a hypothetical possibility.
 
