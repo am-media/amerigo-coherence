@@ -29,6 +29,9 @@ Default for unproven speculative infrastructure: **DEFER**. Burden of proof is o
 
 Explicitly identify speculative services, theme systems, unused abstractions, alternate pipelines and unused UI. Do not keep them wired merely because they exist.
 
+## 2a. Make the remaining critical path testable
+For each CORE/REQUIRED boundary, inspect its input/output contract and existing test evidence. Mark missing boundary checks UNVERIFIED. Before adding features, backfill the smallest deterministic fixture or generator and an output assertion; test nominal and relevant fault conditions without needing production hardware. Do not simulate DEFER/REMOVE branches. Synthetic tests do not replace final integration and real-device checks. See `../docs/boundary-verification.md`.
+
 ## 3. Isolate the nonessential surface
 
 For DEFER/REMOVE items, prefer in this order:
