@@ -31,3 +31,7 @@ Before adding a domain, entity, service, function, or contract, check whether th
 ## Defer the abstraction; accept the migration
 
 Model today's demonstrated requirements, not hypothetical tomorrow requirements. Do not create an independent entity, service, domain, adapter hierarchy or migration framework solely to avoid the possibility of future migration. If future needs establish independent identity, lifecycle or ownership, introduce that structure **then**, with a scoped and tested migration. A future migration is not automatically technical debt. Preserve accurate data and current invariants today; do not sacrifice current correctness or security for minimalism.
+
+## Deadline-driven convergence
+
+When the user sets a deadline, inspect the existing code before estimating. Design the smallest complete acceptance path fitting the timebox, state concrete assumptions and acceptable trade-offs, and avoid padding estimates with hypothetical architecture. Preserve essential safety and functional tests. A partial oversized solution is not a substitute for a complete bounded solution; flag genuine infeasibility promptly.
