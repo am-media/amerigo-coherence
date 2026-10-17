@@ -9,7 +9,7 @@ import sys
 
 def changed_paths(base):
     output = subprocess.check_output(
-        ["git", "diff", "--name-only", "--diff-filter=ACMR", f"{base}...HEAD"],
+        ["git", "diff", "--name-only", "--diff-filter=ACDMRT", f"{base}...HEAD"],
         text=True,
     )
     return [path for path in output.splitlines() if path]
