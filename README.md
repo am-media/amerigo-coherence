@@ -1,6 +1,6 @@
 # Amerigo Coherence — constitutional development governance
 
-**Start with [CONSTITUTION.md](CONSTITUTION.md) and [COUNCIL.md](COUNCIL.md).** Its six technology-agnostic principles govern every recipe and technical choice. Recipes are applications, not additional constitutions.
+**Start with [CONSTITUTION.md](CONSTITUTION.md) and [COUNCIL.md](COUNCIL.md).** Its technology-agnostic principles govern every recipe and technical choice. Recipes are applications, not additional constitutions.
 
 Outcome-first decision recipes for Codex. Prefer the smallest useful tool, finish observable tasks, and prevent unnecessary architectural drift.
 
@@ -18,7 +18,7 @@ The Council assigns eight specialist review identities with a Project Manager as
 - `tools/retrofit.py` — **read-only** Git-tracked-file inventory for existing repositories
 - `tests/test_retrofit.py` — tests of the non-destructive report
 - `templates/retrofit-review.md` — evidence and rollback checklist for recovery
-- `tests/scenarios.yaml` — five **manual** behavioral evaluations
+- `tests/scenarios.yaml` — **manual** behavioral evaluations (not automated)
 - `docs/decisions.md` — ADOPT / FIX / PIVOT / ABANDON outcomes
 
 ## Running it
@@ -33,7 +33,7 @@ From the target project's root:
 python tools/guard.py .coherence/task.json --base origin/main
 ```
 
-This examines the diff from the merge base of `origin/main` to `HEAD`. **Uncommitted changes are not included**: commit to a working branch before running, and ensure your trusted base exists. Guard output is only evidence of path compliance, never a substitute for acceptance tests. For strict policy enforcement, protect the base branch and require this command in project CI with an approved baseline contract.
+This examines added, changed, renamed, and deleted paths in the committed diff from the merge base of `origin/main` to `HEAD`. **Uncommitted changes are not included**: commit to a working branch before running, and ensure your trusted base exists. Guard output is only evidence of path compliance, never a substitute for acceptance tests. For strict policy enforcement, protect the base branch and require this command in project CI with an approved baseline contract.
 
 Self-tests for the guard:
 
@@ -50,6 +50,14 @@ python tools/retrofit.py --root /path/to/existing/project --output /tmp/retrofit
 ```
 
 This writes only the explicitly requested report, never alters the inspected repository, and inventories Git-tracked files rather than detecting true unused code. Record a known-working baseline, verify actual user flows, choose **KEEP / REPAIR / SIMPLIFY / REPLACE_WITH_TOOL**, and approve one reversible change at a time. Large files and TODOs are not automatically defects.
+
+## Verification levels
+
+1. **Boundary:** deterministic fixtures/assertions validate a component contract without production hardware.
+2. **Integration:** real adjacent components and interfaces are exercised in a controlled environment.
+3. **Release:** deployment-specific hardware, environment and operational checks validate shipping readiness where applicable. A prototype can meet its defined proof goal at level 1 or 2 without falsely being called production-ready.
+
+Deadlines can narrow scope and optional polish, not silently waive verification of retained critical behavior. For retrofits, identify and disconnect DEFER/REMOVE paths before spending time creating tests for the retained critical path. Synthetic tests do not prove real-device behavior.
 
 ## Limits
 
