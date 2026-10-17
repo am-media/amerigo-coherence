@@ -1,9 +1,11 @@
 # Engineering governance
 
-Before development, identify the smallest observable outcome. Prefer using or configuring an existing tool to writing software. Use the `convergence` skill to choose a recipe and define acceptance evidence.
+Start with the smallest observable user outcome. Prefer existing tools over custom software. Use `convergence` to select an appropriate recipe and determine acceptance evidence. Stop when the outcome is verified.
 
-For substantive code tasks: establish a bounded task contract **before implementation**. Do not broaden its allowed paths, acceptance criteria, or goal to justify work already performed. If scope must change, propose a separately reviewed contract change. Use the guard in `tools/guard.py` where the target repository has a JSON contract; project CI and branch protection must keep its policy independently enforceable.
+For existing bloated/incomplete repositories choose **core-first recovery**: declare exactly one mission (PROVE_CORE, SHIP_MVP, ADD_FEATURE), classify current runtime components CORE / REQUIRED / DEFER / REMOVE, and disconnect speculative nonessential surface in reversible changes. Burden of proof is on retaining it in the MVP. Preserve data, essential security, existing proven flows, and rollback. Do not redesign as a substitute for delivering a usable core.
 
-Respect existing module boundaries. Do not add dependencies, architecture, or unrelated refactoring without explicit approval. After two failed attempts at the same criterion, reconsider strategy rather than growing the solution. At every stopping point choose ADOPT, FIX, PIVOT, or ABANDON based on evidence; stop on ADOPT.
+For substantive code tasks establish bounded contracts before implementation. Do not silently expand their scope. Use scope checks where integrated, plus functional and regression tests. The path guard cannot prove architectural quality or correct behavior.
 
-These rules apply to this repository. Add no new agent, service, dependency, or recipe without a recurring demonstrated need. Ponytail may complement implementation, but is not bundled.
+Do not add infrastructure, dependencies, agents, abstraction layers, or unrelated refactoring without a concrete present requirement. Keep simple adapters separate from consumers where justified, without generalized frameworks. After two failed attempts at the same criterion, reassess the strategy. End with ADOPT, FIX, PIVOT, or ABANDON.
+
+These rules govern this repository itself. New machinery requires observed failure of a simpler approach.
