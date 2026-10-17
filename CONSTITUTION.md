@@ -35,6 +35,9 @@ Every new or changed meaningful behavior must have a focused executable test ide
 - **RETIRE** — the feature or branch is intentionally removed; disconnect it, remove obsolete tests, and confirm surviving integration tests.
 Never make a red test green by deleting its assertion without checking the requirement. A failing test is evidence for a decision, not automatically a defect to repair. Shipping still requires all **applicable** tests to pass and obsolete contracts to be explicitly retired.
 
+## IX. Accountable specialist council
+For each decision, the Project Manager identifies impacted technical competencies and solicits their evidence-based objections and simplest adequate alternatives. No specialist may broaden scope alone. The PM makes the final investment/stop decision after considering disagreement, user constraints and executable evidence; it cannot waive essential safety or user-approved requirements. Convene all eight specialist perspectives when requested or genuinely system-wide, but never incur a full multi-agent meeting for a trivial edit. See `COUNCIL.md`; the same minimum-sufficient principle governs the council itself.
+
 ## Conflict and exceptions
 Present correctness, security, legal requirements and operational reliability are **requirements**, not optional complexity. If two approaches are genuinely tied or uncertain, run the cheapest reversible experiment. Exceptions to these principles need a named present requirement and explicit scope approval, not a hypothetical possibility.
 
