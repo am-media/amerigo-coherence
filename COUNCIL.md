@@ -4,8 +4,9 @@ This charter describes **decision authority and specialist review**, not softwar
 
 ## Chain of authority
 - **User / product owner:** owns outcomes, hard deadlines, trade-off approvals, and exceptions.
-- **Project Manager (PM):** accountable for convergence. Receives all specialist findings; decides ADOPT, FIX, PIVOT or ABANDON, scoped next step, and whether the benefit justifies investment. PM **cannot waive user requirements or security/safety/legal constraints** or invent approval.
-- **Specialists:** advise only within their competency. They may flag a demonstrable blocking condition; they cannot expand project scope, schedule, budget or architecture unilaterally.
+- **Project Manager (PM):** accountable for delivery, cost, deadlines, investment, and stop/go. Receives the Architect's technical synthesis, decides ADOPT, FIX, PIVOT or ABANDON and approved scope. PM **cannot waive user requirements or security/safety/legal constraints** or invent approval.
+- **Software Architect:** accountable for technical coherence and minimum viable architecture. Routes and challenges relevant specialist findings, owns the final technical recommendation and directs implementation boundaries. Cannot override PM investment/go-no-go or user constraints. If Architect and PM disagree, run the smallest decisive experiment or escalate an explicit trade-off to the user.
+- **Specialists:** report to the Architect for technical decisions and advise only within their competency. They may flag a demonstrable blocking condition; they cannot expand project scope, schedule, budget or architecture unilaterally.
 - **Executor:** implements only the approved bounded change and verifies it; not the final authority over its own exceptions.
 - **Independent checks:** tests, diff guard and protected CI are evidence; a council cannot vote them away.
 
@@ -26,11 +27,11 @@ One specialist identity can be applied by the same model; identity is a **review
 
 ## Invocation and council rules
 
-1. **Always route decisions through the PM.** Even a trivial task gets a short PM outcome/stop check; do not manufacture lengthy council minutes.
-2. **Activate specialists by affected risk/domain.** The PM always asks which competencies matter. Each selected role answers independently where separate agents exist, with: requirement, objection/risk, smallest solution, required test, and recommendation. Unaffected roles are recorded as "not invoked — no relevant boundary" rather than writing fictional opinions.
+1. **Always route decisions through Architect ↔ PM convergence.** The Architect consolidates technical options and objections; the PM approves investment and stopping conditions. Even a trivial task gets a short PM outcome/stop check; do not manufacture lengthy council minutes.
+2. **Activate specialists by affected risk/domain.** The Architect identifies which competencies matter. Each selected role answers independently where separate agents exist, with: requirement, objection/risk, smallest solution, required test, and recommendation. Unaffected roles are recorded as "not invoked — no relevant boundary" rather than writing fictional opinions.
 3. **Cross-domain/high-impact council:** invoke every role with material exposure for cross-module contracts, data migration, deployment, security, and recovery. A full eight-perspective council is reserved for an explicit user request or materially system-wide decision.
-4. **No self-certifying consensus.** Record dissent and evidence. PM resolves based on constitution, current acceptance, deadline, cost and risks; it may ask for the cheapest experiment if evidence is insufficient.
-5. **PM decision has a stop condition:** approved approach, allowed surface, required acceptance checks, explicit compromises, outcome and reason to proceed or stop.
+4. **Challenge twice, not forever.** For nontrivial architecture, the Architect first asks whether the proposed mechanism is necessary and what simpler alternative works. Impacted specialists then challenge contracts, regressions and risk; the Architect revises or rejects the plan. Record real dissent, not ceremonial agreement. The PM then challenges expected value, timebox and delivery before authorizing. Stop review after one bounded cycle or a single decisive experiment; no recursive debate.
+5. **Architect technical decision + PM go/no-go must have a stop condition:** approved approach, allowed surface, required acceptance checks, explicit compromises, outcome and reason to proceed or stop.
 6. **Timebox review.** No recursive council, debate loop, or new agent framework. One review cycle, then a concrete test or decision; unresolved blocking facts go to a focused investigation.
 7. **Specialists do not own software layers.** Eight review identities must not become eight modules, eight services, or eight required repositories.
 
@@ -38,10 +39,12 @@ One specialist identity can be applied by the same model; identity is a **review
 
 ```text
 Mission / deadline:
+Architect initial proposal and simplest alternative:
 Affected specialist reviews: [role — finding — evidence — objection / alternative]
+Architect final technical decision / rejected complexity:
 Not invoked: [role — why irrelevant]
 Disagreement / critical risk:
-PM decision: ADOPT | FIX | PIVOT | ABANDON
+PM investment decision: ADOPT | FIX | PIVOT | ABANDON
 Chosen smallest complete approach:
 Approved scope / test / stop condition:
 Requires user approval: yes/no (reason)
