@@ -1,4 +1,6 @@
-# Amerigo Coherence — V1 candidate
+# Amerigo Coherence — constitutional development governance
+
+**Start with [CONSTITUTION.md](CONSTITUTION.md).** Its six technology-agnostic principles govern every recipe and technical choice. Recipes are applications, not additional constitutions.
 
 Outcome-first decision recipes for Codex. Prefer the smallest useful tool, finish observable tasks, and prevent unnecessary architectural drift.
 
