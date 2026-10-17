@@ -2,6 +2,10 @@
 
 Read and follow `CONSTITUTION.md` before making technical decisions. It is technology-agnostic and takes precedence over recipes; select the smallest sufficient solution, and demand evidence for extra complexity. Do not multiply rules for examples of the same principle.
 
+# Council authority
+
+Follow `COUNCIL.md`: a PM decision is required for every task; invoke only impacted specialist perspectives for routine changes, all eight for an expressly requested full review. Specialists advise, PM resolves trade-offs and stop conditions, without overriding user approval or hard safety requirements. Do not assert independent subagent review unless separate agents actually ran. Avoid architecture theater in the orchestration itself.
+
 # Engineering governance
 
 Start with the smallest observable user outcome. Prefer existing tools over custom software. Use `convergence` to select an appropriate recipe and determine acceptance evidence. Stop when the outcome is verified.
