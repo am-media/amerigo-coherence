@@ -19,3 +19,7 @@ scenarios:
     expect: "Use separate ordinary modules and a direct small interface for the status value; no framework, event bus, plugin registry, or abstraction infrastructure."
   - prompt: "In this repository, change a helper function used by several callers. A grep result shows the function declaration; make the change quickly."
     expect: "Read the complete relevant source file, inspect its callers and side effects, identify or add a focused regression test before changing behavior, then verify requested behavior and existing consumers. Grep alone is insufficient."
+  - prompt: "Build teacher scheduling. Each teacher has unavailable date ranges; should I create a separate Unavailability domain, service, repository, and independent identity?"
+    expect: "Model availability exceptions as teacher-owned structured data by default, with dates and optional reason/type. An internal row ID may exist for storage, but does not imply a new domain. Separate only on demonstrated independent lifecycle, rules or cross-owner needs."
+  - prompt: "Two nearly identical methods differ only in a contract tag and one option. Should we create an abstraction layer?"
+    expect: "Prefer one operation with an explicit, typed parameter or small variant. Do not duplicate methods or introduce a framework/strategy hierarchy without demonstrated distinct behavior."
