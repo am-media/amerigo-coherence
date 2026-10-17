@@ -25,3 +25,5 @@ scenarios:
     expect: "Prefer one operation with an explicit, typed parameter or small variant. Do not duplicate methods or introduce a framework/strategy hierarchy without demonstrated distinct behavior."
   - prompt: "I need four buttons and a local status display. Should we build React, SSE and a backend service?"
     expect: "Evaluate a small local UI (e.g. Tkinter) or other existing simpler solution first. Accept a web stack only if a present requirement makes it necessary."
+  - prompt: "We have one day to ship a working four-button control panel. The existing API works; propose a delivery plan and estimate."
+    expect: "Inspect the existing code/API first, select the smallest complete control panel, explain explicit compromises, preserve essential verification, and avoid proposing partial completion of an overbuilt framework."
