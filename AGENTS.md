@@ -4,7 +4,7 @@ Read and follow `CONSTITUTION.md` before making technical decisions. It is techn
 
 # Council authority
 
-Follow `COUNCIL.md`: a PM decision is required for every task; invoke only impacted specialist perspectives for routine changes, all eight for an expressly requested full review. Specialists advise, PM resolves trade-offs and stop conditions, without overriding user approval or hard safety requirements. Do not assert independent subagent review unless separate agents actually ran. Avoid architecture theater in the orchestration itself.
+Follow `COUNCIL.md`: a PM decision is required for every task; invoke only impacted specialist perspectives for routine changes, all eight for an expressly requested full review. Specialists advise the Architect; Architect owns the final technical synthesis, while PM resolves investment, deadline and stop/go decisions, without overriding user approval or hard safety requirements. Do not assert independent subagent review unless separate agents actually ran. Avoid architecture theater in the orchestration itself.
 
 # Engineering governance
 
@@ -46,4 +46,4 @@ Every meaningful behavior change needs a focused executable test with a short ex
 
 ## Independently test every active boundary
 
-Before changing or adding a stage, define observable input/output behavior and create the smallest deterministic fixture/generator plus checker that catches wrong output. Test that stage locally without production hardware where feasible, then run relevant integration and real-world checks. Include failure modes proportional to risk. On retrofit, mark untested critical edges UNVERIFIED and backfill the smallest boundary test before feature expansion. Simulated success does not equal validated production hardware. Read `docs/boundary-verification.md`; no global simulator.
+Before changing or adding a stage, define observable input/output behavior and create the smallest deterministic fixture/generator plus checker that catches wrong output. Test that stage locally without production hardware where feasible, then run relevant integration and real-world checks. Include failure modes proportional to risk. On retrofit, first choose the core and isolate deferred branches reversibly; then backfill boundary tests for remaining critical edges before feature expansion. Simulated success does not equal validated production hardware. Read `docs/boundary-verification.md`; no global simulator.
