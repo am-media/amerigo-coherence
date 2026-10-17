@@ -1,17 +1,17 @@
 ---
 name: convergence
-description: Select the smallest viable solution for software and workflow requests; define acceptance tests, limit scope, and stop when the requested outcome is verified. Use for prototypes, features, bug fixes, and architectural changes.
+description: Select the smallest usable solution, define evidence-based acceptance criteria, limit implementation scope, and stop when the goal is verified. For prototypes, features, bugs, architectural changes, and recovery of existing drifted repositories.
 ---
 
 # Convergence
 
-1. Restate the user outcome in one sentence, not a technology choice.
-2. Check whether the problem is already solved or can be addressed by an existing tool. Do not build software unless necessary.
-3. Select exactly one recipe in `../../recipes/`: `use-existing-tool`, `prototype`, `add-feature`, `fix-bug`, or `architectural-change`. Record a one-line reason. Read only that recipe.
-4. State observable acceptance criteria, scope, exclusions, and verification method. Use `../../templates/task.yaml` only when a persistent contract helps; for trivial tasks, a short inline contract suffices.
-5. Implement the smallest complete vertical slice. Use existing patterns; apply TDD to testable behavior when useful. Do not expand scope, add infrastructure or refactor unrelated code.
-6. Run appropriate verification including realistic end-to-end acceptance where possible; report unverified items explicitly.
-7. If blocked twice on the same acceptance criterion, stop repeated attempts and reassess the strategy (simplify, pivot, or request a scoped decision). This is a review trigger, not automatic abandonment.
-8. Once acceptance passes and no blocking risk remains, STOP. Further improvements become separately scoped tasks.
+1. Restate the desired user outcome without presuming a technology. Consider a spreadsheet, existing tool, or no code.
+2. If the user wants to recover or simplify a repository already in progress, choose `retrofit-existing-repo` and establish a read-only baseline before editing. Otherwise choose exactly one recipe from `../../recipes/` and record why. Read only that recipe.
+3. For retrofit work, run optional `../../tools/retrofit.py` on the target Git repo and review its report as hypotheses, not verdicts. Never automatically delete apparently unused files or perform broad rewrites. Before coding, specify the outcome, acceptance evidence, allowed file paths, exclusions, and stopping condition. Small tasks can use a short inline contract. For substantive code changes use `../../templates/task.json` and keep it outside the agent's editable paths; the YAML template remains a human planning example.
+4. Implement one small working vertical slice. Prefer the existing stack and TDD for suitable behavior. Do not rewrite unrelated files.
+5. If the project is Git-backed and the JSON contract applies, run `python tools/guard.py .coherence/task.json --base origin/main` from the target repository (adapt the guard location and trusted base). Treat a failed guard as a blocked task, not permission to widen the contract.
+6. Run actual acceptance and regression checks separately: passing the scope guard proves **only scope compliance**.
+7. After two unsuccessful attempts against the same criterion, trigger a strategy review; do not continue cycling blindly.
+8. Report one of four outcomes: ADOPT (verified, stop), FIX (bounded work), PIVOT (requires strategic decision), ABANDON (stop with reasons). See `../../docs/decisions.md`. Never claim verification without evidence.
 
-A recipe is guidance, not enforcement. Project permission boundaries, CI checks, and protected branches must enforce critical constraints independently.
+This skill cannot prevent all agent deviations. Use independently configured CI, permissions and protected branches for essential controls. Do not allow an agent to approve its own expansion of scope.

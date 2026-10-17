@@ -1,0 +1,11 @@
+name: Coherence guard self-test
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test dependency-free guard
+        run: python -m unittest discover -s tests -v

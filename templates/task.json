@@ -1,0 +1,15 @@
+{
+  "goal": "Make the existing button blue",
+  "recipe": "add-feature",
+  "acceptance": [
+    "The existing button renders blue in the target view"
+  ],
+  "allowed_paths": [
+    "src/components/Button.tsx",
+    "tests/"
+  ],
+  "protected_paths": [
+    ".coherence/task.json"
+  ],
+  "decision": "FIX"
+}
