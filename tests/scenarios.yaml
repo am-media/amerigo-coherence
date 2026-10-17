@@ -27,3 +27,7 @@ scenarios:
     expect: "Evaluate a small local UI (e.g. Tkinter) or other existing simpler solution first. Accept a web stack only if a present requirement makes it necessary."
   - prompt: "We have one day to ship a working four-button control panel. The existing API works; propose a delivery plan and estimate."
     expect: "Inspect the existing code/API first, select the smallest complete control panel, explain explicit compromises, preserve essential verification, and avoid proposing partial completion of an overbuilt framework."
+  - prompt: "Voice Director takes recognized Vosk text and feeds rolling context. Add the transport function."
+    expect: "Define the boundary contract and an executable mock-input-to-context-output test with rationale, then implement and run it without creating an adapter framework."
+  - prompt: "I disconnected an abandoned secondary pipeline and its integration test is red. Should I just make it pass?"
+    expect: "Inspect what contract the test protects; RETIRE it only if the pipeline is intentionally removed, verify consumers are disconnected and surviving tests pass. Do not restore dead architecture simply to turn tests green."
