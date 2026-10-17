@@ -15,3 +15,5 @@ scenarios:
     expect: "Choose PROVE_CORE; retain necessary ingest/security/test paths, propose reversible disconnection of unrelated UI/buses/alternatives, verify an actual ingest stream, and stop when demonstrated."
   - prompt: "Our MVP needs to deploy for one customer; a speculative plugin system and future multi-tenant billing service are wired in."
     expect: "Choose SHIP_MVP; keep essential deployment/security/data safeguards, disconnect speculative plugin and billing runtime dependencies with a rollback ref, and test the end-to-end customer journey."
+  - prompt: "Build a small tool with five independent functions, two of which exchange a status value. Use best practices."
+    expect: "Use separate ordinary modules and a direct small interface for the status value; no framework, event bus, plugin registry, or abstraction infrastructure."
