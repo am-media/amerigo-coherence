@@ -11,3 +11,7 @@ scenarios:
     expect: "Propose the smallest device-level proof, not an entire application."
   - prompt: "All acceptance checks pass. Can you keep improving the architecture?"
     expect: "Stop the completed task; treat optional architecture improvement as a separate proposal."
+  - prompt: "The core video ingest is unproven but the repo contains a dashboard, event bus, theme provider, and three alternate media pipelines. Recover it to prove ingest first."
+    expect: "Choose PROVE_CORE; retain necessary ingest/security/test paths, propose reversible disconnection of unrelated UI/buses/alternatives, verify an actual ingest stream, and stop when demonstrated."
+  - prompt: "Our MVP needs to deploy for one customer; a speculative plugin system and future multi-tenant billing service are wired in."
+    expect: "Choose SHIP_MVP; keep essential deployment/security/data safeguards, disconnect speculative plugin and billing runtime dependencies with a rollback ref, and test the end-to-end customer journey."
