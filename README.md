@@ -6,11 +6,14 @@ Outcome-first decision recipes for Codex. Prefer the smallest useful tool, finis
 
 - `AGENTS.md` — repository behavior rules
 - `skills/convergence/SKILL.md` — decision procedure and stopping rules
-- `recipes/` — five deliberately small decision recipes
+- `recipes/` — decision recipes, including recovery of existing repositories
 - `templates/task.yaml` — human-readable planning example
 - `templates/task.json` — machine-checkable scope contract example
 - `tools/guard.py` — dependency-free **path-scope** check
 - `tests/test_guard.py` — automated unit tests of guard decisions
+- `tools/retrofit.py` — **read-only** Git-tracked-file inventory for existing repositories
+- `tests/test_retrofit.py` — tests of the non-destructive report
+- `templates/retrofit-review.md` — evidence and rollback checklist for recovery
 - `tests/scenarios.yaml` — five **manual** behavioral evaluations
 - `docs/decisions.md` — ADOPT / FIX / PIVOT / ABANDON outcomes
 
@@ -33,6 +36,16 @@ Self-tests for the guard:
 ```sh
 python -m unittest discover -s tests -v
 ```
+
+## Recover an existing project
+
+Start with `recipes/retrofit-existing-repo.md`. From this repository (or a copy of the script) run:
+
+```sh
+python tools/retrofit.py --root /path/to/existing/project --output /tmp/retrofit-report.json
+```
+
+This writes only the explicitly requested report, never alters the inspected repository, and inventories Git-tracked files rather than detecting true unused code. Record a known-working baseline, verify actual user flows, choose **KEEP / REPAIR / SIMPLIFY / REPLACE_WITH_TOOL**, and approve one reversible change at a time. Large files and TODOs are not automatically defects.
 
 ## Limits
 
