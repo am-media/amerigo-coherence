@@ -23,3 +23,7 @@ Map the change's dependencies and consumers, then identify which existing tests 
 ## Model the domain, do not multiply it
 
 Before adding a domain, entity, service, function, or contract, check whether the behavior is simply data or a parameter of an existing owner. Prefer one existing operation with explicit parameters/variants over duplicated functions or a new abstraction layer. An absence period belonging to a teacher is ordinarily teacher-owned data, not automatically an independent "Unavailability domain" with its own service and identity. Use a separate entity only when its independent identity, lifecycle, cross-owner relations, permission boundary, or other concrete requirements justify it. Keep domain boundaries about real responsibilities, not every noun in the requirements. Never conflate database row IDs with a need for a separate domain.
+
+## Defer the abstraction; accept the migration
+
+Model today's demonstrated requirements, not hypothetical tomorrow requirements. Do not create an independent entity, service, domain, adapter hierarchy or migration framework solely to avoid the possibility of future migration. If future needs establish independent identity, lifecycle or ownership, introduce that structure **then**, with a scoped and tested migration. A future migration is not automatically technical debt. Preserve accurate data and current invariants today; do not sacrifice current correctness or security for minimalism.
